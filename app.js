@@ -1,10 +1,6 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const bodyParser = require('body-parser')
-
-// middleware
-app.use(bodyParser.urlencoded({extended: true}))
 
 // Server side render, send file
 app.get('/', function (req, res) {
@@ -37,8 +33,8 @@ app.get('/', function (req, res) {
 // })
 
 // routing for query
-app.post('/formHandling', (req, res) => {
-  let {fullname, age} = req.body
+app.get('/formHandling', (req, res) => {
+  let {fullname, age} = req.query
   res.send("Your name is " + fullname + " and your age is " + age + " years old.")
 })
 
